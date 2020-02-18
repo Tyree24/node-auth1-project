@@ -40,7 +40,7 @@ router.post("/login", (req, res) => {
 });
 
 // GET "/api/users"
-router.get("/users", (req, res) => {
+router.get("/users", restricted, (req, res) => {
   Users.find()
     .then((users) => {
       res.json(
@@ -53,5 +53,17 @@ router.get("/users", (req, res) => {
       res.status(500).json(err);
     });
 });
+
+// GET "/api/logout"
+router.get("/logout", restricted, (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      res.status(500).json(err);
+    } else {
+      res.json({ message: "You've successfully logged out." });
+    }
+  });
+});
+
 
 module.exports = router;
