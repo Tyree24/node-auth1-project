@@ -3,6 +3,8 @@ const bcrypt = require("bcryptjs");
 const router = express.Router();
 
 const Users = require("../data/helpers/dbModel.js");
+const { restricted } = require("../middleware/middleware.js");
+
 
 // POST "/api/register"
 router.post("/register", (req, res) => {
@@ -25,9 +27,11 @@ router.post("/login", (req, res) => {
       const validatedPassword = bcrypt.compareSync(password, user.password);
 
       if (user && validatedPassword) {
+        req.session.user = user;
+
         res.json({ message: `${user.username} has logged in successfully!` });
       } else {
-        res.status(401).json({ message: "Invalid credentials" });
+        res.status(401).json({ message: "You shall not pass" });
       }
     })
     .catch((err) => {
