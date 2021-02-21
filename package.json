@@ -1,0 +1,29 @@
+{
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.1",
+    "knex": "^0.20.10",
+    "sqlite3": "^4.1.1"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "node-auth1-project",
+  "description": "Web Auth I Module Challenge",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tyree24/node-auth1-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tyree24/node-auth1-project/issues"
+  },
+  "homepage": "https://github.com/Tyree24/node-auth1-project#readme"
+}
